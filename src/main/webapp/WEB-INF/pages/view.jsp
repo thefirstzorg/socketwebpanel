@@ -6,7 +6,7 @@
 <body>
     ${type}
     <br/>
-    <form action="/view" method="POST" >
+    <form action="/view/${type}" method="POST" >
         <input type="hidden" name="type" value="${type}" />
         <textarea name="message">
 
