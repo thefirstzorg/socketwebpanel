@@ -4,7 +4,7 @@
     <title></title>
 </head>
 <body>
-    <a href="/view?type=live">LIVE</a><br/>
-    <a href="/view?type=info">INFO</a><br/>
+    <a href="/view/live">LIVE</a><br/>
+    <a href="/view/info">INFO</a><br/>
 </body>
 </html>
