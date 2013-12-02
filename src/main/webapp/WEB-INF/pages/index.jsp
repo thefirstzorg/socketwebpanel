@@ -5,7 +5,7 @@
 </head>
 <body>
        <br/>
-        <form method="GET" action="start">
+        <form method="POST" action="/start">
             <input type="text" name="live_port" value="8881">
             <input type="text" name="info_port" value="8882">
             <br />

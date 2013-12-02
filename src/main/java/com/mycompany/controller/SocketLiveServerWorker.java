@@ -9,17 +9,15 @@ import java.util.List;
 
 public class SocketLiveServerWorker implements Runnable {
 
-//	private static SocketLiveServerWorker instatnce = new SocketLiveServerWorker();
-
 	private ServerSocket serverSocket;
 
 	private List<Socket> clients;
 
 	private int port;
-//
-//	public static SocketLiveServerWorker instatnce() {
-//		return instatnce;
-//	}
+
+	public boolean isWorking() {
+		return serverSocket != null && !serverSocket.isClosed();
+	}
 
 	public SocketLiveServerWorker(int port) {
 		this.port = port;
@@ -27,7 +25,7 @@ public class SocketLiveServerWorker implements Runnable {
 
 	@Override
 	public void run() {
-		clients = new ArrayList<Socket>();
+		clients = new ArrayList<>();
 		try {
 			serverSocket = new ServerSocket(port);
 			System.out.println("Server started on port: "+ port);
@@ -70,6 +68,13 @@ public class SocketLiveServerWorker implements Runnable {
 	}
 
 	public void startWorker() {
+		if(serverSocket != null && !serverSocket.isClosed()) {
+			try {
+				serverSocket.close();
+			} catch (IOException e) {
+				e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+			}
+		}
 		Thread thread = new Thread(this);
 		thread.start();
 	}

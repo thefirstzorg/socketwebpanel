@@ -7,11 +7,10 @@
     ${type}
     <br/>
     <form action="/view/${type}" method="POST" >
-        <input type="hidden" name="type" value="${type}" />
-        <textarea name="message">
+        <textarea name="message" cols="100" rows="10">
 
         </textarea>
-
+        <br />
         <input type="submit" value="send" />
     </form>
 </body>
